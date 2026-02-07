@@ -37,7 +37,7 @@ p{
 .playground{
     position:relative;
     width:100%;
-    height:350px;
+    height:260px;
     margin-top:30px;
 }
 
@@ -67,7 +67,7 @@ button{
     top:120px;
 }
 
-/* ❤️ Herzen */
+/* Herzen */
 .heart{
     position:fixed;
     top:-20px;
@@ -100,8 +100,8 @@ button{
 
 <script>
 
-var scale = 1;
-var messageIndex = 0;
+var scale=1;
+var messageIndex=0;
 
 var messages=[
 "Bist du dir sicher? 🥺",
@@ -119,11 +119,8 @@ function noClick(){
 
     var area=document.getElementsByClassName("playground")[0];
 
-    var maxX=area.clientWidth-noBtn.offsetWidth;
-    var maxY=area.clientHeight-noBtn.offsetHeight;
-
-    maxX = maxX * 1.3;
-    maxY = maxY * 1.3;
+    var maxX = area.clientWidth - noBtn.offsetWidth;
+    var maxY = area.clientHeight - noBtn.offsetHeight;
 
     var x=Math.random()*maxX;
     var y=Math.random()*maxY;
@@ -134,11 +131,11 @@ function noClick(){
     noBtn.innerHTML=messages[messageIndex];
     messageIndex=(messageIndex+1)%messages.length;
 
-    scale = scale * 1.25;
+    scale*=1.25;
     yesBtn.style.transform="scale("+scale+")";
 }
 
-/* HERZ ERZEUGEN */
+/* Herz erzeugen */
 function createHeart(){
     var heart=document.createElement("div");
     heart.className="heart";
@@ -157,14 +154,13 @@ function yesClick(){
 
 document.body.innerHTML=
 '<div style="height:100vh;background:#ff2b7a;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;font-family:Arial;text-align:center;">'+
-'<img src="bild1.jpg" style="width:200px;border-radius:20px;margin-bottom:20px;">'+
+'<img src="bild1.jpg" style="width:180px;border-radius:20px;margin-bottom:20px;">'+
 '<h1 style="font-size:50px;">💘 Juhu! 💘</h1>'+
 '<p style="font-size:22px;">Ich wusste du sagst Ja ❤️</p>'+
-'<img src="bild2.jpg" style="width:200px;border-radius:20px;margin-top:20px;">'+
+'<img src="bild2.jpg" style="width:180px;border-radius:20px;margin-top:20px;">'+
 '</div>';
 
-/* Herzregen starten */
-setInterval(createHeart,200);
+setInterval(createHeart,250);
 }
 
 </script>
