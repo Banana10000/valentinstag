@@ -66,6 +66,21 @@ button{
     left:120px;
     top:90px;
 }
+
+/* ❤️ Herzen */
+.heart{
+    position:fixed;
+    top:-20px;
+    font-size:24px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
 </style>
 </head>
 
@@ -92,7 +107,7 @@ var messages=[
 "Bist du dir sicher? 🥺",
 "Überleg nochmal! 💔",
 "Ich bring Chips! 🍿",
-"Kann dich eine Massage überzeugen? 💆",
+"Eine Massage? 💆",
 "Ich geb nicht auf! 😭"
 ];
 
@@ -113,13 +128,25 @@ function noClick(){
     noBtn.style.left=x+"px";
     noBtn.style.top=y+"px";
 
-    /* Text ändern */
     noBtn.innerHTML=messages[messageIndex];
     messageIndex=(messageIndex+1)%messages.length;
 
-    /* JA größer */
     scale=scale*1.25;
     yesBtn.style.transform="scale("+scale+")";
+}
+
+/* ❤️ Herz erzeugen */
+function createHeart(){
+    var heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(2+Math.random()*3)+"s";
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+        heart.remove();
+    },5000);
 }
 
 /* JA gedrückt */
@@ -128,10 +155,12 @@ function yesClick(){
 document.body.innerHTML=
 '<div style="height:100vh;background:#ff2b7a;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;font-family:Arial;">'+
 '<img src="bild1.jpg" style="width:200px;border-radius:20px;margin-bottom:20px;">'+
-'<h1 style="font-size:50px;">💘 Juhu! 💘</h1>'+
+'<h1 style="font-size:50px;color:#ffd700;">💘 Juhu! 💘</h1>'+   <!-- GOLD -->
 '<p style="font-size:22px;">Ich wusste du sagst Ja ❤️</p>'+
 '<img src="bild2.jpg" style="width:200px;border-radius:20px;margin-top:20px;">'+
 '</div>';
+
+setInterval(createHeart,250);
 }
 
 </script>
