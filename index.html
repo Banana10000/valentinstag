@@ -37,7 +37,7 @@ p{
 .playground{
     position:relative;
     width:100%;
-    height:260px;
+    height:200px;
     margin-top:30px;
 }
 
@@ -64,22 +64,7 @@ button{
     background:#eee;
     position:absolute;
     left:120px;
-    top:120px;
-}
-
-/* Herzen */
-.heart{
-    position:fixed;
-    top:-20px;
-    font-size:24px;
-    animation:fall linear forwards;
-}
-
-@keyframes fall{
-    to{
-        transform:translateY(110vh);
-        opacity:0;
-    }
+    top:90px;
 }
 </style>
 </head>
@@ -107,7 +92,7 @@ var messages=[
 "Bist du dir sicher? 🥺",
 "Überleg nochmal! 💔",
 "Ich bring Chips! 🍿",
-"Massage dazu? 💆",
+"Kann dich eine Massage überzeugen? 💆",
 "Ich geb nicht auf! 😭"
 ];
 
@@ -119,8 +104,8 @@ function noClick(){
 
     var area=document.getElementsByClassName("playground")[0];
 
-    var maxX = area.clientWidth - noBtn.offsetWidth;
-    var maxY = area.clientHeight - noBtn.offsetHeight;
+    var maxX=area.clientWidth-noBtn.offsetWidth;
+    var maxY=area.clientHeight-noBtn.offsetHeight;
 
     var x=Math.random()*maxX;
     var y=Math.random()*maxY;
@@ -128,39 +113,25 @@ function noClick(){
     noBtn.style.left=x+"px";
     noBtn.style.top=y+"px";
 
+    /* Text ändern */
     noBtn.innerHTML=messages[messageIndex];
     messageIndex=(messageIndex+1)%messages.length;
 
-    scale*=1.25;
+    /* JA größer */
+    scale=scale*1.25;
     yesBtn.style.transform="scale("+scale+")";
-}
-
-/* Herz erzeugen */
-function createHeart(){
-    var heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(2+Math.random()*3)+"s";
-    document.body.appendChild(heart);
-
-    setTimeout(function(){
-        heart.remove();
-    },5000);
 }
 
 /* JA gedrückt */
 function yesClick(){
 
 document.body.innerHTML=
-'<div style="height:100vh;background:#ff2b7a;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;font-family:Arial;text-align:center;">'+
-'<img src="bild1.jpg" style="width:180px;border-radius:20px;margin-bottom:20px;">'+
+'<div style="height:100vh;background:#ff2b7a;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;font-family:Arial;">'+
+'<img src="bild1.jpg" style="width:200px;border-radius:20px;margin-bottom:20px;">'+
 '<h1 style="font-size:50px;">💘 Juhu! 💘</h1>'+
 '<p style="font-size:22px;">Ich wusste du sagst Ja ❤️</p>'+
-'<img src="bild2.jpg" style="width:180px;border-radius:20px;margin-top:20px;">'+
+'<img src="bild2.jpg" style="width:200px;border-radius:20px;margin-top:20px;">'+
 '</div>';
-
-setInterval(createHeart,250);
 }
 
 </script>
