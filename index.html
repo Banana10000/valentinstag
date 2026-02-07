@@ -63,7 +63,7 @@ button{
 #noBtn{
     background:#eee;
     position:absolute;
-    left:120px;
+    left:90px;          /* <-- näher an Ja */
     top:90px;
 }
 
@@ -107,7 +107,7 @@ var messages=[
 "Bist du dir sicher? 🥺",
 "Überleg nochmal! 💔",
 "Ich bring Chips! 🍿",
-"Eine Massage? 💆",
+"Kann dich eine Massage überzeugen? 💆",
 "Ich geb nicht auf! 😭"
 ];
 
@@ -153,10 +153,10 @@ function createHeart(){
 function yesClick(){
 
 document.body.innerHTML=
-'<div style="height:100vh;background:linear-gradient(135deg,#ff9a9e,#fad0c4);display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;font-family:Arial;">'+
+'<div style="height:100vh;background:linear-gradient(135deg,#ff9a9e,#fad0c4);display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;font-family:Arial;text-align:center;">'+
 '<img src="bild1.jpg" style="width:200px;border-radius:20px;margin-bottom:20px;">'+
-'<h1 style="font-size:50px;color:#ffd700;">💘 Juhu! 💘</h1>'+   <!-- GOLD -->
-'<p style="font-size:22px;margin-top:5px;">Ich wusste du sagst Ja ❤️</p>'+
+'<h1 style="font-size:50px;color:#ffd700;">💘 Juhu! 💘</h1>'+
+'<p style="font-size:22px;margin-top:-15px;">Ich wusste du sagst Ja ❤️</p>'+
 '<img src="bild2.jpg" style="width:200px;border-radius:20px;margin-top:20px;">'+
 '</div>';
 
@@ -167,5 +167,3 @@ setInterval(createHeart,250);
 
 </body>
 </html>
-
-
